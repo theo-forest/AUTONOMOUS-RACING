@@ -1,0 +1,35 @@
+version: '3.8'
+
+services:
+  train:
+    build: .
+    image: ddpg-rl-racer
+    container_name: ddpg-train
+    volumes:
+      # Live mounts for immediate feedback loop
+      - ./weights:/app/weights
+      - ./src:/app/src
+    deploy:
+      resources:
+        reservations:
+          devices:
+            - driver: nvidia
+              count: 1
+              capabilities: [gpu]
+    command: python improved_ddpg.py
+
+  tune:
+    build: .
+    image: ddpg-rl-racer
+    container_name: ddpg-tune
+    volumes:
+      - ./weights:/app/weights
+      - ./src:/app/src
+    deploy:
+      resources:
+        reservations:
+          devices:
+            - driver: nvidia
+              count: 1
+              capabilities: [gpu]
+    command: python tune_ddpg.py
