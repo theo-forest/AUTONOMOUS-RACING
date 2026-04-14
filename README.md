@@ -35,6 +35,10 @@ docker-compose run tune
 - `Dockerfile`: Prepares a Python environment on top of `tensorflow/tensorflow:latest-gpu`.
 
 
+## Inference
+<video width="320" height="240" controls>
+  <source src="src/inference/rltour.mp4" type="video/mp4">
+</video>
 
 ## Conclusion
 Using bayesian optimization in this context is not very relevant, this algorithm DDPG generate too much noise, so all the effort to imrpove the Agent were put on the reward shaping.
