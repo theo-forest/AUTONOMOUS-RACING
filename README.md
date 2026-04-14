@@ -36,9 +36,6 @@ docker-compose run tune
 
 
 ## Inference
-<video width="320" height="240" controls>
-  <source src="src/inference/rltour.mp4" type="video/mp4">
-</video>
-
+![Inférence](src/rl_tour.mp4)
 ## Conclusion
 Using bayesian optimization in this context is not very relevant, this algorithm DDPG generate too much noise, so all the effort to imrpove the Agent were put on the reward shaping.
